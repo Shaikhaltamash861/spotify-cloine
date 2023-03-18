@@ -1,23 +1,68 @@
-import logo from './logo.svg';
-import './App.css';
+import Login from "./container/Login";
+import { useEffect, useState,useContext } from "react";
+import Spotify from "./container/Spotify";
+import { getTokenFromURI } from "./container/spot";
+import SpotifyWebApi from "spotify-web-api-js";
+import { useDataLayer } from "./contextApi/DataLayer.js";
 
-function App() {
+const spotify=new SpotifyWebApi();
+function App() { 
+  // const s=useContext(StateProvider)
+  const [token,setToken]=useState(null)
+  const [{user ,newRelease},dispatch]=useDataLayer();
+  console.log(newRelease)
+  useEffect(() => {
+       const hash=getTokenFromURI();
+       window.location.hash="";
+      const _token=hash.access_token;
+      if(_token){
+        spotify.setAccessToken(_token);
+        spotify.getMe().then((user)=>{
+
+          dispatch({
+            type:'SET_USER',
+            user:user
+          })
+          
+        })
+        spotify.getUserPlaylists().then(playlists=>{
+
+          dispatch({
+            type:'SET_PLAYLISTS',
+            playlists:playlists
+          })
+        })
+        spotify.getMyRecentlyPlayedTracks().then(song=>{
+          dispatch({
+            type:'SET_RECENT_SONG',
+            recentPlay:song
+
+          })
+        })
+        spotify.getNewReleases().then(song=>{
+          dispatch({
+            type:'SET_NEW_RELEASE',
+            newRelease:song
+
+          })
+        })
+                setToken(_token)
+      }
+      //  console.log('i have token',token)
+      console.log(spotify)
+     
+  
+  }, [])
+   
+  // const token=null
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        token?(<Spotify spotify={spotify}/>):(
+          <Login/>
+
+        )
+      }
     </div>
   );
 }

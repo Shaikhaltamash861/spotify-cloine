@@ -1,0 +1,17 @@
+.collection{
+ background: rgb(53, 53, 53);
+ 
+ width: 239px;
+ height: 330px;
+ border-radius:6px ;
+}
+.collection img{
+     width: 200px;
+     /* height: 250px;  */
+     
+    }
+    .collection .about_song{
+        color: aliceblue;
+    padding-left: 18px;
+    padding-left: 18px;
+}

@@ -1,0 +1,72 @@
+.player{
+    position: fixed;
+    bottom: 0;
+    width: 99%;
+    background: #282828;
+    height: 80px;
+    
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px;
+}
+.player_songInfo h4{
+    margin-bottom: 5px;
+
+}
+.player_songInfo p{
+    font-size: 11px;
+    color: rgb(173, 165, 165);
+}
+.album{
+    flex: 0.3;
+    display: flex;
+    align-items: center;
+    color: white;
+    width: 300px;
+}
+.controls{
+    flex: 0.4;
+    padding: 0 100px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 300px;
+}
+.player__right{
+    flex: 0.3;
+}
+.album{
+    display: flex;
+}
+.album .img{
+    width: 72px;
+    /* height: 60px; */
+    margin-right: 20px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+.controls .icon{
+    color: rgb(201, 201, 201);
+    cursor: pointer;
+}
+.controls .icon_play{
+    font-size:40px;
+    cursor: pointer;
+    color: rgb(201, 201, 201);
+}
+.controls .icon:hover{
+
+    transition: transform 0.2s ease-in-out;
+    transform:  scale(1.1) !important;
+}
+#play{
+    
+    transition: transform 0.2s ease-in-out;
+    transform:  scale(1.1) !important;
+}
+#green{
+    color: rgb(31, 182, 119);
+}

@@ -1,0 +1,6 @@
+.rightside{
+    flex: 0.83;
+    /* border: 1px solid rgb(25, 199, 103); */
+    background: linear-gradient( transparent, rgb(55, 97, 107), rgb(0,0,0,1) );
+    background-color: rgb(60, 64, 65);
+}

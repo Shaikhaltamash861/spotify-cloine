@@ -1,0 +1,37 @@
+.body{
+    display: flex;
+    width: 100%;
+    height: calc( 100vh - 165px );
+}
+.category{
+    padding-left: 49px;
+    color: aliceblue;
+}
+.grid-container{
+    display: grid;
+    grid: auto/ auto auto auto auto auto;
+    grid-gap: 30px;
+  
+    /* padding: 10px; */
+    padding-left: 49px;
+    padding-right: 30px;
+    margin-top: 10px;
+    overflow-y: scroll;
+}
+  
+
+.grid-container::-webkit-scrollbar{
+    width: 0.3rem;
+
+}
+.grid-container::-webkit-slider-thumb{
+    background-color: red;
+}
+.grid-container .card{
+    /* background-color: rgba(255, 255, 255, 0.8);
+    display: block;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+    overflow: auto; */
+}
